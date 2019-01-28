@@ -1,0 +1,77 @@
+! Use a nice truetype font and size by default... 
+xterm*faceName: DejaVu Sans Mono Book
+xterm*faceSize: 11
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+! I like a LOT of scrollback...
+xterm*savelines: 16384
+
+! double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+!-----------------------------------
+! monokai dark
+! special
+*.foreground:   #f8f8f2
+*.background:   #272822
+*.cursorColor:  #f8f8f2
+
+! black
+*.color0:       #272822
+*.color8:       #75715e
+
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+
+! white
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
+
+!-------------------------
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+! URXVT
+URxvt*scrollBar: false
+URxvt*transparent: true
+URxvt*shading:      20
+! URxvt*background: rgba:0000/0000/0200/c800
+! URxvt*background: [50]#404552
+! #000000
+! URxvt*depth: 32
+! URxvt*transparent: true
+! URxvt*shading: 30
+URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14
+! URxvt*letterSpace: 1
+URxvt*colorUL:  #4682B4
+URxvt*perl-ext-common: resize-font,keyboard-select 
+URxvt.keysym.M-Escape: perl:keyboard-select:activate 
+URxvt.keysym.M-s: perl:keyboard-select:search
