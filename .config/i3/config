@@ -39,15 +39,18 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# focus do not follow mouse
+focus_follows_mouse no
+
 #rofi
 bindsym $mod+space exec "rofi -combi-modi window,drun,run -show combi"
 
 #lockScreen
-bindsym Ctrl+$mod+l exec "i3lock -t -i ~/wp3.png"
+bindsym Ctrl+$mod+l exec "i3lock -t -i ~/Pictures/wp3.png"
 
 #volume controls
-bindsym Ctrl+Shift+Up exec "pactl set-sink-volume 0 +5%"
-bindsym Ctrl+Shift+Down exec "pactl set-sink-volume 0 -5%"
+bindsym Ctrl+Shift+Up exec "pactl set-sink-volume 7 +5%"
+bindsym Ctrl+Shift+Down exec "pactl set-sink-volume 7 -5%"
 
 #Drop down
 # General dropdown window traits. The order can matter.
@@ -179,6 +182,11 @@ bindsym $mod+Next		    workspace next
 bindsym $mod+Shift+Next		move container to workspace next
 bindsym $mod+Tab		    workspace back_and_forth
 
+# enable floating for slack
+for_window [class="Slack"] floating enable
+for_window [class="Slack"] resize set 1200 1000
+for_window [class="Slack"] position center
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -225,7 +233,7 @@ bar {
 # start network manager
 exec --no-startup-id nm-applet
 # Wallpapers
-exec --no-startup-id "feh --bg-scale ~/wp3.png
+exec --no-startup-id "feh --bg-scale ~/Pictures/wp3.png"
 #Language Switcher
 exec --no-startup-id "setxkbmap -layout us,ru"
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"

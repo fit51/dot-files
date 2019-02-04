@@ -61,17 +61,20 @@ xterm*scrollTtyOutput: false
 
 ! URXVT
 URxvt*scrollBar: false
+! Background transparency
 URxvt*transparent: true
 URxvt*shading:      20
-! URxvt*background: rgba:0000/0000/0200/c800
-! URxvt*background: [50]#404552
-! #000000
-! URxvt*depth: 32
-! URxvt*transparent: true
-! URxvt*shading: 30
+! Font
 URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14
-! URxvt*letterSpace: 1
 URxvt*colorUL:  #4682B4
+! Extensions
 URxvt*perl-ext-common: resize-font,keyboard-select 
-URxvt.keysym.M-Escape: perl:keyboard-select:activate 
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt*keysym.M-Escape: perl:keyboard-select:activate 
+URxvt*keysym.M-s: perl:keyboard-select:search
+URxvt*keyboard-select.clipboard: true
+! Disable ISO Ctrl+Shift
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+! Enable copy+paste
+URxvt*keysym.Shift-Control-V: eval:paste_clipboard
+URxvt*keysym.Shift-Control-C: eval:selection_to_clipboard
