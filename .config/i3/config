@@ -13,6 +13,8 @@ for_window [class="^.*"] border pixel 2
 gaps inner 15
 gaps outer 15
 
+smart_gaps on
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -49,8 +51,8 @@ bindsym $mod+space exec "rofi -combi-modi window,drun,run -show combi"
 bindsym Ctrl+$mod+l exec "i3lock -t -i ~/Pictures/wp3.png"
 
 #volume controls
-bindsym Ctrl+Shift+Up exec "pactl set-sink-volume 7 +5%"
-bindsym Ctrl+Shift+Down exec "pactl set-sink-volume 7 -5%"
+bindsym Ctrl+Shift+Up exec "pactl set-sink-volume 0 +5%"
+bindsym Ctrl+Shift+Down exec "pactl set-sink-volume 0 -5%"
 
 #Drop down
 # General dropdown window traits. The order can matter.
@@ -134,18 +136,21 @@ bindsym $mod+a focus parent
 # HDMI-1 left
 # VGA-1 right
 workspace 1 output HDMI-1
-workspace 2 output VGA-1
-workspace 3 output VGA-1
-workspace 4 output VGA-1
-workspace 5 output VGA-1
+workspace 2 output HDMI-1
+workspace 3 output HDMI-1
+workspace 4 output HDMI-1
+workspace 5 output HDMI-1
 workspace 6 output VGA-1
 workspace 7 output VGA-1
+workspace 8 output VGA-1
+workspace 9 output VGA-1
+workspace 0 output VGA-1
 
 #workspace gaps
 # workspace 1 gaps inner 0
 # workspace 1 gaps outer 0
-workspace 2 gaps inner 0
-workspace 2 gaps outer 0
+# workspace 2 gaps inner 0
+# workspace 2 gaps outer 0
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -182,7 +187,12 @@ bindsym $mod+Next		    workspace next
 bindsym $mod+Shift+Next		move container to workspace next
 bindsym $mod+Tab		    workspace back_and_forth
 
-# enable floating for slack
+# enable floating for windows
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="xpad"] floating enable
+for_window [class="Oracle Java Mission Control"] floating enable
+for_window [class="KeePass2"] floating enable
 for_window [class="Slack"] floating enable
 for_window [class="Slack"] resize set 1200 1000
 for_window [class="Slack"] position center
@@ -227,13 +237,6 @@ bar {
         position top
         tray_output primary
 }
-#Screen position exec_always --no-start-id bash 'xrandr --output HDMI-1 --primary'
-# exec_always --no-start-id bash 'xrandr --output HDMI-1 --left-of VGA-1'
 
-# start network manager
-exec --no-startup-id nm-applet
-# Wallpapers
-exec --no-startup-id "feh --bg-scale ~/Pictures/wp3.png"
-#Language Switcher
-exec --no-startup-id "setxkbmap -layout us,ru"
-exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
+# StartUp scipt
+exec --no-startup-id ~/.scripts/i3/start_up.sh
