@@ -1,0 +1,8 @@
+#!/bin/bash
+include_path="$HOME/.config/i3/config.d"
+i3_config="$HOME/.config/i3/config.test"
+
+cat "${include_path}/vars.conf" > "$i3_config"
+cat "${include_path}/base.conf" >> "$i3_config"
+#cat "${include_path}/display1.conf" >> "$i3_config"
+cat "${include_path}/display2.conf" >> "$i3_config"
